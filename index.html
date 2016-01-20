@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div id="progress"></div>
+
+  <div id="image"></div>
+
+</body>
+<script src="bower_components/PreloadJS/lib/preloadjs-0.6.2.min.js"></script>
+<script>
+
+  var queue = new createjs.LoadQueue(false);
+
+  function handleProgress (event) {
+    var progress = (event.progress * 100) + '%';
+    document.getElementById('progress').innerHTML = progress;
+  }
+
+  function handleComplete (argument) {
+    console.log("all finished");
+  }
+
+  function handleFileLoad(event) {
+    document.getElementById('image').appendChild(event.result);
+  }
+
+  queue.on("fileload", handleFileLoad);
+  queue.on("progress", handleProgress);
+  queue.on("complete", handleComplete);
+
+  //public in AWS
+  var manifest = [
+    'https://s3-ap-southeast-2.amazonaws.com/ensemblejs-assets/image1.jpeg',
+    'https://s3-ap-southeast-2.amazonaws.com/ensemblejs-assets/heavy_image.jpg'
+  ];
+  queue.loadManifest(manifest);
+
+</script>
+</html>

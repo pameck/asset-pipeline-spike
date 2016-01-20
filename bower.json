@@ -1,0 +1,19 @@
+{
+  "name": "asset-pipeline-spike",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ensemblejs/asset-pipeline-spike",
+  "authors": [
+    "Pamela Rucinque <pamela.rucinque@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "PreloadJS": "~0.6.2"
+  }
+}
